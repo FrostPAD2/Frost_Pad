@@ -1,68 +1,33 @@
-﻿using static StupidTemplate.Menu.Main;
-using static StupidTemplate.Settings;
+﻿using StupidTemplate.Classes;
+using UnityEngine;
+using static StupidTemplate.Menu.Main;
 
-namespace StupidTemplate.Mods
+namespace StupidTemplate
 {
-    internal class SettingsMods
+    internal class Settings
     {
-        public static void EnterSettings()
+        public static ExtGradient backgroundColor = new ExtGradient{isRainbow = true};
+        public static ExtGradient[] buttonColors = new ExtGradient[]
         {
-            buttonsType = 1;
-        }
+            new ExtGradient{colors = GetSolidGradient(Color.black) }, // Disabled
+            new ExtGradient{isRainbow = true} // Enabled
+        };
+        public static Color[] textColors = new Color[]
+        {
+            Color.white, // Disabled
+            Color.white // Enabled
+        };
 
-        public static void MenuSettings()
-        {
-            buttonsType = 2;
-        }
+        public static Font currentFont = (Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font);
 
-        public static void MovementSettings()
-        {
-            buttonsType = 3;
-        }
+        public static bool fpsCounter = true;
+        public static bool disconnectButton = true;
+        public static bool rightHanded = false;
+        public static bool disableNotifications = false;
 
-        public static void ProjectileSettings()
-        {
-            buttonsType = 4;
-        }
+        public static KeyCode keyboardButton = KeyCode.Q;
 
-        public static void RightHand()
-        {
-            rightHanded = true;
-        }
-
-        public static void LeftHand()
-        {
-            rightHanded = false;
-        }
-
-        public static void EnableFPSCounter()
-        {
-            fpsCounter = true;
-        }
-
-        public static void DisableFPSCounter()
-        {
-            fpsCounter = false;
-        }
-
-        public static void EnableNotifications()
-        {
-            disableNotifications = false;
-        }
-
-        public static void DisableNotifications()
-        {
-            disableNotifications = true;
-        }
-
-        public static void EnableDisconnectButton()
-        {
-            disconnectButton = true;
-        }
-
-        public static void DisableDisconnectButton()
-        {
-            disconnectButton = false;
-        }
+        public static Vector3 menuSize = new Vector3(0.1f, 1f, 1f); // Depth, Width, Height
+        public static int buttonsPerPage = 8;
     }
 }
